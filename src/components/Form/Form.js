@@ -15,6 +15,7 @@ class Form extends Component {
           <option value='jedi-knight'>JEDI KNIGHT</option>
           <option value='padawon'>PADAWON</option>
         </select>
+        <button type='button'>LET'S GO</button>
       </form>
     )
   }
