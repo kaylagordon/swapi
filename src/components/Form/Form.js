@@ -7,7 +7,7 @@ class Form extends Component {
     this.state = {
       name: '',
       favoriteQuote: '',
-      ranking: ''
+      ranking: 'jedi-master'
     }
   }
 
@@ -35,10 +35,14 @@ class Form extends Component {
           onChange={this.updateUserInfo}
         />
         <p className='form-text'>HOW WELL DO YOU KNOW STAR WARS?</p>
-        <select>
-          // <option value='jedi-master'>JEDI MASTER</option>
-          // <option value='jedi-knight'>JEDI KNIGHT</option>
-          // <option value='padawon'>PADAWON</option>
+        <select
+          name='ranking'
+          value={this.state.ranking}
+          onChange={this.updateUserInfo}
+        >
+          <option value='jedi-master'>JEDI MASTER</option>
+          <option value='jedi-knight'>JEDI KNIGHT</option>
+          <option value='padawon'>PADAWON</option>
         </select>
         <button type='button'>LET'S GO</button>
       </form>
