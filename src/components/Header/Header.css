@@ -1,0 +1,32 @@
+header {
+  display: flex;
+  align-items: center;
+}
+
+.deathStarContainer {
+  background-color: black;
+  border-radius: 100%;
+  height: 10vw;
+  width: 10vw;
+  margin-left: 2vw;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+img {
+  width: 85%;
+  margin-left: 5%;
+}
+
+h1 {
+  background-color: black;
+  color: white;
+  width: 90%;
+  text-align: left;
+  padding: .3vw;
+  padding-left: 1vw;
+  margin-left: -1vw;
+  font-size: 3vw;
+  letter-spacing: .3vw;
+}
