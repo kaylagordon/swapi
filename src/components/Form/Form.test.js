@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Form from './Form';
 import { shallow } from 'enzyme';
 
 describe('App', () => {
   it('should match the snapshot with the favorited class', () => {
-    const wrapper = shallow(<App />)
+    const wrapper = shallow(<Form />)
     expect(wrapper).toMatchSnapshot();
     })
 })
