@@ -17,6 +17,6 @@
   background-color: black;
   background-image: url('../../images/background.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 80vw;
 }
