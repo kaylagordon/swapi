@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from '../Header/Header';
-import Form from '../Form/Form'
+import Form from '../Form/Form';
+import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentPage: 'landing-page'
+      currentPage: 'movies'
     }
   }
 
-  logIn = () => {
+  switchPages = page => {
     this.setState({
-      currentPage: 'movie-page'
+      currentPage: page
     })
   }
 
   render() {
     return (
       <main className="App">
-        {this.state.currentPage === 'landing-page' && <>
+        {this.state.currentPage === 'landing' && <>
           <Header heading='HELLO, YOUNG JEDI'/>
-          <Form logIn={this.logIn}/>
+          <Form switchPages={this.switchPages}/>
         </>}
-        {this.state.currentPage === 'movie-page' && <>
+        {this.state.currentPage === 'movies' && <>
+          <UserProfile />
           <Header heading='THE MOVIES'/>
         </>}
-        {this.state.currentPage === 'character-page' && <>
+        {this.state.currentPage === 'characters' && <>
           <Header heading='THE CHARACTERS'/>
+
         </>}
       </main>
     );

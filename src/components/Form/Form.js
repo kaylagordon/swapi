@@ -21,7 +21,7 @@ class Form extends Component {
   handleClick = () => {
     if(this.state.name && this.state.favoriteQuote && this.state.ranking) {
       this.setState({ formComplete: 'hide' });
-      this.props.logIn();
+      this.props.switchPages('movies');
     } else {
       this.setState({ formComplete: 'show' })
     }

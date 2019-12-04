@@ -1,0 +1,9 @@
+.user-profile {
+  flex-wrap: wrap;
+  margin: auto;
+  padding-top: 1vw;
+  margin-bottom: -6vw;
+  text-align: center;
+  color: white;
+  width: 80%;
+}
