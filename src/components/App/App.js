@@ -3,12 +3,13 @@ import './App.css';
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 import UserProfile from '../UserProfile/UserProfile';
+import MovieContainer from '../MovieContainer/MovieContainer';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentPage: 'landing',
+      currentPage: 'movies',
       name: '',
       favoriteQuote: '',
       ranking: '',
@@ -58,6 +59,9 @@ class App extends Component {
             ranking={this.state.ranking}
           />
           <Header heading='THE MOVIES'/>
+          <MovieContainer
+            movies={this.state.movies}
+          />
         </>}
         {this.state.currentPage === 'characters' &&
         <>
