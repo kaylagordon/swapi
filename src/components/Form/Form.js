@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Form.css';
 
 class Form extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       favoriteQuote: '',
@@ -21,9 +21,9 @@ class Form extends Component {
   handleClick = () => {
     if(this.state.name && this.state.favoriteQuote && this.state.ranking) {
       this.setState({ formComplete: 'hide' });
+      this.props.logIn();
     } else {
       this.setState({ formComplete: 'show' })
-      console.log('error')
     }
   }
 

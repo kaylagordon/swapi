@@ -11,12 +11,18 @@ class App extends Component {
     }
   }
 
+  logIn = () => {
+    this.setState({
+      currentPage: 'movie-page'
+    })
+  }
+
   render() {
     return (
       <main className="App">
         {this.state.currentPage === 'landing-page' && <>
           <Header />
-          <Form />
+          <Form logIn={this.logIn}/>
         </>}
       </main>
     );
