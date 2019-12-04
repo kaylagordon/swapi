@@ -8,7 +8,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentPage: 'movies'
+      currentPage: 'landing',
+      name: '',
+      favoriteQuote: '',
+      ranking: '',
     }
   }
 
@@ -18,20 +21,37 @@ class App extends Component {
     })
   }
 
+  updateStateFromForm = (name, favoriteQuote, ranking) => {
+    this.setState({
+      name: name,
+      favoriteQuote: favoriteQuote,
+      ranking: ranking
+    })
+  }
+
   render() {
     return (
       <main className="App">
-        {this.state.currentPage === 'landing' && <>
+        {this.state.currentPage === 'landing' &&
+        <>
           <Header heading='HELLO, YOUNG JEDI'/>
-          <Form switchPages={this.switchPages}/>
+          <Form
+            switchPages={this.switchPages}
+            updateStateFromForm={this.updateStateFromForm}
+          />
         </>}
-        {this.state.currentPage === 'movies' && <>
-          <UserProfile />
+        {this.state.currentPage === 'movies' &&
+        <>
+          <UserProfile
+            name={this.state.name}
+            favoriteQuote={this.state.favoriteQuote}
+            ranking={this.state.ranking}
+          />
           <Header heading='THE MOVIES'/>
         </>}
-        {this.state.currentPage === 'characters' && <>
+        {this.state.currentPage === 'characters' &&
+        <>
           <Header heading='THE CHARACTERS'/>
-
         </>}
       </main>
     );

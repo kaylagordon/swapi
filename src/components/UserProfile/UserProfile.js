@@ -1,12 +1,12 @@
 import React from 'react';
 import './UserProfile.css';
 
-function UserProfile({ heading }) {
+function UserProfile({ name, favoriteQuote, ranking }) {
   return (
     <section className='user-profile'>
-      <h2>NAME</h2>
-      <h3>LEVEL</h3>
-      <p>QUO TEQU OTEQ UOTEQU OTEQUOT EQUOTE QUOTEQ UOTEQUOTEQ UOTEQ UOT EQUOT EQUOTEQUOTE QUO TEQU OTEQUOT EQUOTEQUOTEQUOTEQ UOTE QUOTEQUOTE QUOTEQUO TE QUOTEQUOTEQU OTEQUOTE QUOTEQUO  TEQUOTE QUOTEQ UOTE QUOTEQU  OTEQ UOTEQU OTEQ UOTEQUOTE QUOTEQ </p>
+      <h2>{name}</h2>
+      <h3>{ranking}</h3>
+      <p>{favoriteQuote}</p>
     </section>
   );
 }
