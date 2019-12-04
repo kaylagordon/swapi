@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the snapshot with the favorited class 1`] = `
+<form>
+  <p
+    className="form-text"
+  >
+    WHAT IS YOUR FIRST NAME?
+  </p>
+  <input
+    name="name"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <p
+    className="form-text"
+  >
+    WHAT IS YOUR FAVORITE STAR WARS QUOTE?
+  </p>
+  <input
+    name="favoriteQuote"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <p
+    className="form-text"
+  >
+    HOW WELL DO YOU KNOW STAR WARS?
+  </p>
+  <select
+    name="ranking"
+    onChange={[Function]}
+    value="jedi-master"
+  >
+    <option
+      value="jedi-master"
+    >
+      JEDI MASTER
+    </option>
+    <option
+      value="jedi-knight"
+    >
+      JEDI KNIGHT
+    </option>
+    <option
+      value="padawon"
+    >
+      PADAWON
+    </option>
+  </select>
+  <button
+    type="button"
+  >
+    LET'S GO
+  </button>
+</form>
+`;
