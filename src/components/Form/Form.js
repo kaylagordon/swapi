@@ -7,7 +7,8 @@ class Form extends Component {
     this.state = {
       name: '',
       favoriteQuote: '',
-      ranking: 'jedi-master'
+      ranking: 'jedi-master',
+      formComplete: false
     }
   }
 
@@ -15,6 +16,15 @@ class Form extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
+  }
+
+  handleClick = () => {
+    if(this.state.name && this.state.favoriteQuote && this.state.ranking) {
+      this.setState({ formComplete: true });
+    } else {
+      this.setState({ formComplete: false })
+      console.log('error')
+    }
   }
 
   render() {
@@ -42,9 +52,10 @@ class Form extends Component {
         >
           <option value='jedi-master'>JEDI MASTER</option>
           <option value='jedi-knight'>JEDI KNIGHT</option>
-          <option value='padawon'>PADAWON</option>
+          <option value='padawan'>PADAWAN</option>
         </select>
-        <button type='button'>LET'S GO</button>
+        <span className={this.state.formComplete.toString()}>ALL FIELDS MUST BE FILLED IN</span>
+        <button type='button' onClick={this.handleClick}>LET'S GO</button>
       </form>
     )
   }
