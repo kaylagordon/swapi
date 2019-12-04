@@ -41,3 +41,11 @@ input:hover,
 input:focus {
   transform: scale(1.05);
 }
+
+.false {
+  color: red;
+}
+
+.true {
+  display: none;
+}
