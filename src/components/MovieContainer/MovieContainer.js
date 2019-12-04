@@ -4,8 +4,7 @@ import MovieCard from '../MovieCard/MovieCard';
 
 function MovieContainer({ movies }) {
   const renderCards = () => {
-    return movies.map(movie => {
-      console.log(movie);
+    return movies.sort((a, b) => a.episode_id - b.episode_id).map(movie => {
       return (
         <MovieCard movie={movie} />
       )
