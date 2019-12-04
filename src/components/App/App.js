@@ -12,7 +12,17 @@ class App extends Component {
       name: '',
       favoriteQuote: '',
       ranking: '',
+      movies: []
     }
+  }
+
+  componentDidMount() {
+    fetch('https://swapi.co/api/films')
+    .then(response => response.json())
+    .then(data => this.setState({
+      movies: data.results
+    }))
+    .catch(error => console.log(error))
   }
 
   switchPages = page => {
@@ -51,6 +61,11 @@ class App extends Component {
         </>}
         {this.state.currentPage === 'characters' &&
         <>
+          <UserProfile
+            name={this.state.name}
+            favoriteQuote={this.state.favoriteQuote}
+            ranking={this.state.ranking}
+          />
           <Header heading='THE CHARACTERS'/>
         </>}
       </main>
