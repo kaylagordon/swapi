@@ -21,8 +21,14 @@ class App extends Component {
     return (
       <main className="App">
         {this.state.currentPage === 'landing-page' && <>
-          <Header />
+          <Header heading='HELLO, YOUNG JEDI'/>
           <Form logIn={this.logIn}/>
+        </>}
+        {this.state.currentPage === 'movie-page' && <>
+          <Header heading='THE MOVIES'/>
+        </>}
+        {this.state.currentPage === 'character-page' && <>
+          <Header heading='THE CHARACTERS'/>
         </>}
       </main>
     );
