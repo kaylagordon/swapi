@@ -1,10 +1,13 @@
 form {
-  background-color: black;
+  background-color: #0B1E36;
   color: white;
   padding: 1vw 2vw 2vw 2vw;
   width: 45%;
   margin: auto;
+  margin-top: 2vw;
   letter-spacing: .1vw;
+  border-radius: 2%;
+  box-shadow: 15px 15px 15px #A6A6A6;
 }
 
 .form-text {
