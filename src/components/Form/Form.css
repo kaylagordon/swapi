@@ -45,10 +45,10 @@ input:focus {
   transform: scale(1.05);
 }
 
-.false {
+.show {
   color: red;
 }
 
-.true {
+.hide {
   display: none;
 }

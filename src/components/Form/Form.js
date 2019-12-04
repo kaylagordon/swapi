@@ -8,7 +8,7 @@ class Form extends Component {
       name: '',
       favoriteQuote: '',
       ranking: 'jedi-master',
-      formComplete: false
+      formComplete: 'hide'
     }
   }
 
@@ -20,9 +20,9 @@ class Form extends Component {
 
   handleClick = () => {
     if(this.state.name && this.state.favoriteQuote && this.state.ranking) {
-      this.setState({ formComplete: true });
+      this.setState({ formComplete: 'hide' });
     } else {
-      this.setState({ formComplete: false })
+      this.setState({ formComplete: 'show' })
       console.log('error')
     }
   }
