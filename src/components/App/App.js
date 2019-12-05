@@ -14,16 +14,19 @@ class App extends Component {
       name: '',
       favoriteQuote: '',
       ranking: '',
-      movies: []
+      movies: [],
+      currentMovie: {}
     }
   }
 
   componentDidMount() {
     fetch('https://swapi.co/api/films')
     .then(response => response.json())
-    .then(data => this.setState({
-      movies: data.results
-    }))
+    .then(movies => {
+      this.setState({
+        movies: movies.results
+      })
+    })
     .catch(error => console.log(error))
   }
 
@@ -33,6 +36,12 @@ class App extends Component {
       name: name,
       favoriteQuote: favoriteQuote,
       ranking: ranking
+    })
+  }
+
+  updateStateWithMovie = (movie) => {
+    this.setState({
+      currentMovie: movie
     })
   }
 
@@ -60,6 +69,7 @@ class App extends Component {
               <Header heading='THE MOVIES'/>
               <MovieContainer
                 movies={this.state.movies}
+                updateStateWithMovie={this.updateStateWithMovie}
               />
             </>
           )
