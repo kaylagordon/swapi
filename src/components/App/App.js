@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentPage: 'movies',
+      currentPage: 'landing',
       name: '',
       favoriteQuote: '',
       ranking: '',
