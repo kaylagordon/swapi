@@ -26,12 +26,6 @@ class App extends Component {
     .catch(error => console.log(error))
   }
 
-  switchPages = page => {
-    this.setState({
-      // currentPage: page
-    })
-  }
-
   updateStateFromForm = (name, favoriteQuote, ranking) => {
     this.setState({
       name: name,
@@ -48,7 +42,6 @@ class App extends Component {
             <>
               <Header heading='HELLO, YOUNG JEDI'/>
               <Form
-                switchPages={this.switchPages}
                 updateStateFromForm={this.updateStateFromForm}
               />
             </>

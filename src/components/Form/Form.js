@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Form.css';
+import { Link } from 'react-router-dom';
 
 class Form extends Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class Form extends Component {
     if(this.state.name && this.state.favoriteQuote && this.state.ranking) {
       this.setState({ formComplete: 'hide' });
       this.props.updateStateFromForm(this.state.name, this.state.favoriteQuote, this.state.ranking);
-      this.props.switchPages('movies');
     } else {
       this.setState({ formComplete: 'show' })
     }
@@ -56,7 +56,9 @@ class Form extends Component {
           <option value='padawan'>PADAWAN</option>
         </select>
         <span className={this.state.formComplete.toString()}>ALL FIELDS MUST BE FILLED IN</span>
-        <button type='button' onClick={this.handleClick}>LET'S GO</button>
+        <Link to='/movies' className='login-button'>
+          <button type='button' onClick={this.handleClick}>LET'S GO</button>
+        </Link>
       </form>
     )
   }
