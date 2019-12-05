@@ -61,6 +61,7 @@ class App extends Component {
           <Header heading='THE MOVIES'/>
           <MovieContainer
             movies={this.state.movies}
+            switchPages={this.switchPages}
           />
         </>}
         {this.state.currentPage === 'characters' &&
