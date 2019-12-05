@@ -9,7 +9,7 @@ function MovieCard({ movie, switchPages }) {
       <h4>RELEASED IN {movie.release_date.split('-')[0]}</h4>
       <button
         className='view-characters-button'
-        onClick={() => switchPages('characters')}
+        // onClick={() => switchPages('characters')}
       >
       VIEW CHARACTERS
       </button>

@@ -9,7 +9,7 @@ function MovieContainer({ movies, switchPages }) {
         <MovieCard
           key={Math.random()}
           movie={movie}
-          switchPages={switchPages}
+          // switchPages={switchPages}
         />
       )
     })
