@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Form.css';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Form extends Component {
   constructor(props) {
@@ -56,9 +56,7 @@ class Form extends Component {
           <option value='padawan'>PADAWAN</option>
         </select>
         <span className={this.state.formComplete.toString()}>ALL FIELDS MUST BE FILLED IN</span>
-        <Link to='/movies' className='login-button'>
-          <button type='button' onClick={this.handleClick}>LET'S GO</button>
-        </Link>
+        <button type='button' onClick={this.handleClick}>LET'S GO</button>
       </form>
     )
   }

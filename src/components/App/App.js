@@ -4,12 +4,13 @@ import Header from '../Header/Header';
 import Form from '../Form/Form';
 import UserProfile from '../UserProfile/UserProfile';
 import MovieContainer from '../MovieContainer/MovieContainer';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      loggedIn: false,
       name: '',
       favoriteQuote: '',
       ranking: '',
@@ -28,6 +29,7 @@ class App extends Component {
 
   updateStateFromForm = (name, favoriteQuote, ranking) => {
     this.setState({
+      loggedIn: true,
       name: name,
       favoriteQuote: favoriteQuote,
       ranking: ranking
@@ -37,16 +39,16 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <Route exact path='/' render={() => {
-          return (
+        <Route exact path="/">
+          {this.state.loggedIn ? <Redirect to="/movies" /> : (
             <>
               <Header heading='HELLO, YOUNG JEDI'/>
               <Form
                 updateStateFromForm={this.updateStateFromForm}
               />
             </>
-          )
-        }} />
+          )}
+        </Route>
         <Route path='/movies' render={() => {
           return (
             <>
