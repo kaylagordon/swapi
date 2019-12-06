@@ -1,0 +1,5 @@
+.character-container {
+  margin-top: 3vw;
+  display: flex;
+  overflow: auto;
+}

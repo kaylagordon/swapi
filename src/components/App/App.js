@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Form from '../Form/Form';
 import UserProfile from '../UserProfile/UserProfile';
 import MovieContainer from '../MovieContainer/MovieContainer';
+import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
@@ -14,7 +15,8 @@ class App extends Component {
       name: '',
       favoriteQuote: '',
       ranking: '',
-      movies: []
+      movies: [],
+      characters: []
     }
   }
 
@@ -38,11 +40,30 @@ class App extends Component {
     })
   }
 
+  updateStateWithCharacters = (character) => {
+    if (this.state.characters.length < 10) {
+      let characterList = [...this.state.characters, {
+        name: character.name,
+        species: character.species,
+        homeworld: character.homeworld,
+        homeworldPop: 'TBD',
+        relatedFilms: character.films
+      }];
+      this.setState({
+        characters: characterList
+      })
+    }
+  }
+
   fetchCharacters = (movie) => {
-    fetch(movie.characters[1])
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+    movie.characters.forEach(character => fetch(character)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.updateStateWithCharacters(data)
+      })
+      .catch(error => console.log(error))
+    )
   }
 
 
@@ -59,7 +80,7 @@ class App extends Component {
             </>
           )}
         </Route>
-        <Route path='/movies' render={() => {
+        <Route exact path='/movies' render={() => {
           return (
             <>
               <UserProfile
@@ -75,7 +96,8 @@ class App extends Component {
             </>
           )
         }} />
-        <Route path='/characters' render={() => {
+        <Route path='/movies/:id' render={({ match }) => {
+          console.log(match.params.id);
           return (
             <>
               <UserProfile
@@ -84,6 +106,7 @@ class App extends Component {
                 ranking={this.state.ranking}
               />
               <Header heading='THE CHARACTERS'/>
+              <CharacterContainer characters={this.state.characters}/>
             </>
           )
         }} />
