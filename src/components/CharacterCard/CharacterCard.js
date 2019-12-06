@@ -20,13 +20,21 @@ class CharacterCard extends Component {
       homeworld: data.name,
       homeworldPop: data.population
     }))
+
+    this.props.character.species.forEach(species => {
+      fetch(species)
+      .then(response => response.json())
+      .then(data => this.setState({
+        species: data.name
+      }))
+    })
   }
 
   render() {
     return (
       <section className='character-card'>
         <h2>{this.state.name.toUpperCase()}</h2>
-        <h4>SPECIES: </h4>
+        <h4>SPECIES: {this.state.species}</h4>
         <h4>HOMEWORLD: {this.state.homeworld}</h4>
         <h4>POPULATION: {this.state.homeworldPop}</h4>
         <h4>FILMS:</h4>
