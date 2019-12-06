@@ -59,6 +59,7 @@ class CharacterCard extends Component {
         <h4>POPULATION: {this.state.homeworldPop}</h4>
         <h4>FILMS:</h4>
         {this.showFilms()}
+        <button className='favorite-button'>ADD TO MY FAVORITES</button>
       </section>
     )
   }

@@ -9,3 +9,16 @@
   margin: 2vw;
   box-shadow: 15px 15px 15px #A6A6A6;
 }
+
+h4 {
+  padding-top: 2vw;
+}
+
+.favorite-button {
+  padding: .5vw;
+  font-size: 1vw;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
