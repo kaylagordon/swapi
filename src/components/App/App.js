@@ -47,7 +47,7 @@ class App extends Component {
         species: character.species,
         homeworld: character.homeworld,
         homeworldPop: 'TBD',
-        relatedFilms: character.films
+        films: character.films
       }];
       this.setState({
         characters: characterList
@@ -58,10 +58,7 @@ class App extends Component {
   fetchCharacters = (movie) => {
     movie.characters.forEach(character => fetch(character)
       .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        this.updateStateWithCharacters(data)
-      })
+      .then(data => this.updateStateWithCharacters(data))
       .catch(error => console.log(error))
     )
   }
@@ -97,7 +94,6 @@ class App extends Component {
           )
         }} />
         <Route path='/movies/:id' render={({ match }) => {
-          console.log(match.params.id);
           return (
             <>
               <UserProfile

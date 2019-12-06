@@ -8,6 +8,7 @@ function CharacterContainer({ characters }) {
       return (
         <CharacterCard
           character={character}
+          key={character.name}
         />
       )
     })
