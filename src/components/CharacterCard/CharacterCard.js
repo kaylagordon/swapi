@@ -9,7 +9,8 @@ class CharacterCard extends Component {
       name: props.character.name,
       species: '',
       homeworld: '',
-      homeworldPop: ''
+      homeworldPop: '',
+      films: []
     }
   }
 
@@ -28,6 +29,25 @@ class CharacterCard extends Component {
         species: data.name
       }))
     })
+
+    let films = [];
+
+    this.props.character.films.forEach(film => {
+      fetch(film)
+      .then(response => response.json())
+      .then(data => {
+        films.push(data.title)
+        this.setState({
+          films: films
+        })
+      })
+    })
+  }
+
+  showFilms = () => {
+    return this.state.films.map(film => {
+      return <p>- {film}</p>
+    })
   }
 
   render() {
@@ -38,6 +58,7 @@ class CharacterCard extends Component {
         <h4>HOMEWORLD: {this.state.homeworld}</h4>
         <h4>POPULATION: {this.state.homeworldPop}</h4>
         <h4>FILMS:</h4>
+        {this.showFilms()}
       </section>
     )
   }
