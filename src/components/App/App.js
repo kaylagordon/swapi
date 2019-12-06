@@ -14,8 +14,7 @@ class App extends Component {
       name: '',
       favoriteQuote: '',
       ranking: '',
-      movies: [],
-      currentMovie: {}
+      movies: []
     }
   }
 
@@ -39,11 +38,13 @@ class App extends Component {
     })
   }
 
-  updateStateWithMovie = (movie) => {
-    this.setState({
-      currentMovie: movie
-    })
+  fetchCharacters = (movie) => {
+    fetch(movie.characters[1])
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
   }
+
 
   render() {
     return (
@@ -69,7 +70,7 @@ class App extends Component {
               <Header heading='THE MOVIES'/>
               <MovieContainer
                 movies={this.state.movies}
-                updateStateWithMovie={this.updateStateWithMovie}
+                fetchCharacters={this.fetchCharacters}
               />
             </>
           )
