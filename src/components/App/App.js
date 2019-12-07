@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Form from '../Form/Form';
 import UserProfile from '../UserProfile/UserProfile';
 import MovieContainer from '../MovieContainer/MovieContainer';
+import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
@@ -14,16 +15,19 @@ class App extends Component {
       name: '',
       favoriteQuote: '',
       ranking: '',
-      movies: []
+      movies: [],
+      characterURLs: []
     }
   }
 
   componentDidMount() {
     fetch('https://swapi.co/api/films')
     .then(response => response.json())
-    .then(data => this.setState({
-      movies: data.results
-    }))
+    .then(movies => {
+      this.setState({
+        movies: movies.results
+      })
+    })
     .catch(error => console.log(error))
   }
 
@@ -33,6 +37,18 @@ class App extends Component {
       name: name,
       favoriteQuote: favoriteQuote,
       ranking: ranking
+    })
+  }
+
+  updateStateWithCharacters = (characters) => {
+    let characterList = [];
+    characters.forEach(character => {
+      if (characterList.length < 10) {
+        characterList.push(character);
+      }
+    })
+    this.setState({
+      characterURLs: characterList
     })
   }
 
@@ -49,7 +65,7 @@ class App extends Component {
             </>
           )}
         </Route>
-        <Route path='/movies' render={() => {
+        <Route exact path='/movies' render={() => {
           return (
             <>
               <UserProfile
@@ -60,11 +76,12 @@ class App extends Component {
               <Header heading='THE MOVIES'/>
               <MovieContainer
                 movies={this.state.movies}
+                updateStateWithCharacters={this.updateStateWithCharacters}
               />
             </>
           )
         }} />
-        <Route path='/characters' render={() => {
+        <Route path='/movies/:id' render={({ match }) => {
           return (
             <>
               <UserProfile
@@ -73,6 +90,7 @@ class App extends Component {
                 ranking={this.state.ranking}
               />
               <Header heading='THE CHARACTERS'/>
+              <CharacterContainer characterURLs={this.state.characterURLs}/>
             </>
           )
         }} />
