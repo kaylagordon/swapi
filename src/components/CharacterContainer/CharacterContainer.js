@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './CharacterContainer.css';
 import CharacterCard from '../CharacterCard/CharacterCard';
+import Loader from '../Loader/Loader'
 
 class CharacterContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       characters: []
     }
   }
@@ -44,6 +46,7 @@ class CharacterContainer extends Component {
             })
             if (characters.length > 9) {
               this.setState({
+                isLoading: false,
                 characters: characters
               })
             }
@@ -66,7 +69,11 @@ class CharacterContainer extends Component {
   render() {
     return (
     <section className='character-container'>
-      {this.renderCards()}
+      {
+        this.state.isLoading ?
+        <Loader /> :
+        this.renderCards()
+      }
     </section>
     );
   }

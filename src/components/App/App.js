@@ -77,7 +77,7 @@ class App extends Component {
               <MovieContainer
                 movies={this.state.movies}
                 updateStateWithCharacters={this.updateStateWithCharacters}
-              />
+                />
             </>
           )
         }} />

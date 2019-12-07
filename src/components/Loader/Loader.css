@@ -1,0 +1,21 @@
+.loader-image {
+  animation: spinning-pic infinite 10s linear;
+  width: 30vw;
+}
+
+@keyframes spinning-pic {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loader-text {
+  color: white;
+  font-size: 3vw;
+  margin-top: .5vw;
+}
+
+.loader-container {
+  margin: auto;
+  margin-top: 5vw;
+  text-align: center;
+}
