@@ -5,12 +5,14 @@ import Form from '../Form/Form';
 import UserProfile from '../UserProfile/UserProfile';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
+import Loader from '../Loader/Loader'
 import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      isLoading: true,
       loggedIn: false,
       name: '',
       favoriteQuote: '',
@@ -74,10 +76,14 @@ class App extends Component {
                 ranking={this.state.ranking}
               />
               <Header heading='THE MOVIES'/>
-              <MovieContainer
+              {
+                this.state.isLoading ?
+                <Loader /> :
+                <MovieContainer
                 movies={this.state.movies}
                 updateStateWithCharacters={this.updateStateWithCharacters}
-              />
+                />
+              }
             </>
           )
         }} />
