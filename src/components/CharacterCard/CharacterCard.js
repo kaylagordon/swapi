@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function CharacterCard({ character }) {
   const showFilms = () => {
     return character.films.map(film => {
-      return <p>- {film}</p>
+      return <p key={Math.random()}>- {film}</p>
     })
   }
 
