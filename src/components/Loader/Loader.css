@@ -1,7 +1,6 @@
 .loader-image {
   animation: spinning-pic infinite 10s linear;
   width: 30vw;
-  margin-top: 5vw;
 }
 
 @keyframes spinning-pic {
@@ -16,5 +15,7 @@
 }
 
 .loader-container {
+  margin: auto;
+  margin-top: 5vw;
   text-align: center;
 }
