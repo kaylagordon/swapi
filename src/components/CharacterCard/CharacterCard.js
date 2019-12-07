@@ -15,33 +15,27 @@ class CharacterCard extends Component {
   }
 
   componentDidMount() {
-    fetch(this.props.character.homeworld)
+
+    let homeworldInfo = fetch(this.props.character.homeworld)
     .then(response => response.json())
-    .then(data => this.setState({
-      homeworld: data.name,
-      homeworldPop: data.population
-    }))
-
-    this.props.character.species.forEach(species => {
-      fetch(species)
-      .then(response => response.json())
-      .then(data => this.setState({
-        species: data.name
-      }))
+    .then(data => {
+       return [data.name, data.population]
     })
 
-    let films = [];
-
-    this.props.character.films.forEach(film => {
-      fetch(film)
+    let speciesInfo = this.props.character.species.map(species => {
+      return fetch(species)
       .then(response => response.json())
-      .then(data => {
-        films.push(data.title)
-        this.setState({
-          films: films
-        })
-      })
+      .then(data =>  data.name)
     })
+
+    let filmsInfo = this.props.character.films.map(film => {
+      return fetch(film)
+      .then(response => response.json())
+      .then(data => data.title)
+    })
+
+    Promise.all([homeworldInfo, speciesInfo, filmsInfo])
+    .then(data => console.log(data))
   }
 
   showFilms = () => {

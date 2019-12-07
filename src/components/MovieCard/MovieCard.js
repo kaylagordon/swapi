@@ -2,10 +2,7 @@ import React from 'react';
 import './MovieCard.css';
 import { Link } from 'react-router-dom';
 
-function MovieCard({ movie, fetchCharacters }) {
-  const viewCharacters = (event) => {
-    fetchCharacters(movie);
-  }
+function MovieCard({ movie, updateStateWithCharacters }) {
 
   return (
     <section className='movie-card'>
@@ -13,7 +10,7 @@ function MovieCard({ movie, fetchCharacters }) {
       <h2 className='movie-title'>{movie.title.toUpperCase()}</h2>
       <h4>RELEASED IN {movie.release_date.split('-')[0]}</h4>
       <Link to={`/movies/${movie.episode_id}`}>
-        <button className='view-characters-button' onClick={(event) => viewCharacters(event)}>VIEW CHARACTERS</button>
+        <button className='view-characters-button' onClick={() => updateStateWithCharacters(movie.characters)}>VIEW CHARACTERS</button>
       </Link>
     </section>
   );

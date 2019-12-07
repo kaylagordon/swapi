@@ -16,7 +16,7 @@ class App extends Component {
       favoriteQuote: '',
       ranking: '',
       movies: [],
-      characters: []
+      characterURLs: []
     }
   }
 
@@ -40,29 +40,17 @@ class App extends Component {
     })
   }
 
-  updateStateWithCharacters = (character) => {
-    if (this.state.characters.length < 10) {
-      let characterList = [...this.state.characters, {
-        name: character.name,
-        species: character.species,
-        homeworld: character.homeworld,
-        homeworldPop: 'TBD',
-        films: character.films
-      }];
-      this.setState({
-        characters: characterList
-      })
-    }
+  updateStateWithCharacters = (characters) => {
+    let characterList = [];
+    characters.forEach(character => {
+      if (characterList.length < 10) {
+        characterList.push(character);
+      }
+    })
+    this.setState({
+      characterURLs: characterList
+    })
   }
-
-  fetchCharacters = (movie) => {
-    movie.characters.forEach(character => fetch(character)
-      .then(response => response.json())
-      .then(data => this.updateStateWithCharacters(data))
-      .catch(error => console.log(error))
-    )
-  }
-
 
   render() {
     return (
@@ -88,7 +76,7 @@ class App extends Component {
               <Header heading='THE MOVIES'/>
               <MovieContainer
                 movies={this.state.movies}
-                fetchCharacters={this.fetchCharacters}
+                updateStateWithCharacters={this.updateStateWithCharacters}
               />
             </>
           )
