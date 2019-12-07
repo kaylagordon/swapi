@@ -90,7 +90,7 @@ class App extends Component {
                 ranking={this.state.ranking}
               />
               <Header heading='THE CHARACTERS'/>
-              <CharacterContainer characters={this.state.characters}/>
+              <CharacterContainer characterURLs={this.state.characterURLs}/>
             </>
           )
         }} />
