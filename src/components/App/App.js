@@ -52,13 +52,23 @@ class App extends Component {
     })
   }
 
+  logOut = () => {
+    this.setState({
+      loggedIn: false
+    })
+  }
+
   render() {
     return (
       <main className="App">
         <Route exact path="/">
           {this.state.loggedIn ? <Redirect to="/movies" /> : (
             <>
-              <Header heading='HELLO, YOUNG JEDI'/>
+              <Header
+                heading='HELLO, YOUNG JEDI'
+                showHomeButton={false}
+                logOut={this.logOut}
+              />
               <Form
                 updateStateFromForm={this.updateStateFromForm}
               />
@@ -73,7 +83,11 @@ class App extends Component {
                 favoriteQuote={this.state.favoriteQuote}
                 ranking={this.state.ranking}
               />
-              <Header heading='THE MOVIES'/>
+              <Header
+                heading='THE MOVIES'
+                showHomeButton={true}
+                logOut={this.logOut}
+              />
               <MovieContainer
                 movies={this.state.movies}
                 updateStateWithCharacters={this.updateStateWithCharacters}
@@ -89,7 +103,11 @@ class App extends Component {
                 favoriteQuote={this.state.favoriteQuote}
                 ranking={this.state.ranking}
               />
-              <Header heading='THE CHARACTERS'/>
+              <Header
+                heading='THE CHARACTERS'
+                showHomeButton={true}
+                logOut={this.logOut}
+              />
               <CharacterContainer characterURLs={this.state.characterURLs}/>
             </>
           )
