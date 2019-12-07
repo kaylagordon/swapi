@@ -4,12 +4,13 @@ import Header from '../Header/Header';
 import Form from '../Form/Form';
 import UserProfile from '../UserProfile/UserProfile';
 import MovieContainer from '../MovieContainer/MovieContainer';
+import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentPage: 'landing',
+      loggedIn: false,
       name: '',
       favoriteQuote: '',
       ranking: '',
@@ -26,14 +27,9 @@ class App extends Component {
     .catch(error => console.log(error))
   }
 
-  switchPages = page => {
-    this.setState({
-      currentPage: page
-    })
-  }
-
   updateStateFromForm = (name, favoriteQuote, ranking) => {
     this.setState({
+      loggedIn: true,
       name: name,
       favoriteQuote: favoriteQuote,
       ranking: ranking
@@ -43,36 +39,43 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        {this.state.currentPage === 'landing' &&
-        <>
-          <Header heading='HELLO, YOUNG JEDI'/>
-          <Form
-            switchPages={this.switchPages}
-            updateStateFromForm={this.updateStateFromForm}
-          />
-        </>}
-        {this.state.currentPage === 'movies' &&
-        <>
-          <UserProfile
-            name={this.state.name}
-            favoriteQuote={this.state.favoriteQuote}
-            ranking={this.state.ranking}
-          />
-          <Header heading='THE MOVIES'/>
-          <MovieContainer
-            movies={this.state.movies}
-            switchPages={this.switchPages}
-          />
-        </>}
-        {this.state.currentPage === 'characters' &&
-        <>
-          <UserProfile
-            name={this.state.name}
-            favoriteQuote={this.state.favoriteQuote}
-            ranking={this.state.ranking}
-          />
-          <Header heading='THE CHARACTERS'/>
-        </>}
+        <Route exact path="/">
+          {this.state.loggedIn ? <Redirect to="/movies" /> : (
+            <>
+              <Header heading='HELLO, YOUNG JEDI'/>
+              <Form
+                updateStateFromForm={this.updateStateFromForm}
+              />
+            </>
+          )}
+        </Route>
+        <Route path='/movies' render={() => {
+          return (
+            <>
+              <UserProfile
+                name={this.state.name}
+                favoriteQuote={this.state.favoriteQuote}
+                ranking={this.state.ranking}
+              />
+              <Header heading='THE MOVIES'/>
+              <MovieContainer
+                movies={this.state.movies}
+              />
+            </>
+          )
+        }} />
+        <Route path='/characters' render={() => {
+          return (
+            <>
+              <UserProfile
+                name={this.state.name}
+                favoriteQuote={this.state.favoriteQuote}
+                ranking={this.state.ranking}
+              />
+              <Header heading='THE CHARACTERS'/>
+            </>
+          )
+        }} />
       </main>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Form.css';
+import { Redirect } from 'react-router-dom';
 
 class Form extends Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class Form extends Component {
     if(this.state.name && this.state.favoriteQuote && this.state.ranking) {
       this.setState({ formComplete: 'hide' });
       this.props.updateStateFromForm(this.state.name, this.state.favoriteQuote, this.state.ranking);
-      this.props.switchPages('movies');
     } else {
       this.setState({ formComplete: 'show' })
     }
