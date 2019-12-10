@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterContainer should match the snapshot 1`] = `
+<section
+  className="character-container"
+>
+  <Loader />
+</section>
+`;

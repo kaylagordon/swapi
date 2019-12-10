@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match the snapshot with the favorited class 1`] = `
+exports[`Header should match the snapshot 1`] = `
 <header>
   <div
     className="header-black-box"

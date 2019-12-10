@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 
 function CharacterCard({ character }) {
   const showFilms = () => {
+    let counter=0;
     return character.films.map(film => {
-      return <p key={Math.random()}>- {film}</p>
+      counter++;
+      return <p key={counter}>- {film}</p>
     })
   }
 
