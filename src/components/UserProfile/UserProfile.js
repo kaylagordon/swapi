@@ -1,5 +1,6 @@
 import React from 'react';
 import './UserProfile.css';
+import PropTypes from 'prop-types';
 
 function UserProfile({ name, favoriteQuote, ranking }) {
   return (
@@ -9,6 +10,12 @@ function UserProfile({ name, favoriteQuote, ranking }) {
       <p>{favoriteQuote}</p>
     </section>
   );
+}
+
+UserProfile.propTypes = {
+  name: PropTypes.string,
+  favoriteQuote: PropTypes.string,
+  ranking: PropTypes.string
 }
 
 export default UserProfile;

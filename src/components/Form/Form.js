@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   constructor(props) {
@@ -64,4 +65,9 @@ class Form extends Component {
     )
   }
 };
+
+Form.propTypes = {
+  updateStateFromForm: PropTypes.func
+}
+
 export default Form;

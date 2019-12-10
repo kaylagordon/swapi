@@ -46,10 +46,5 @@ exports[`CharacterCard should match the snapshot 1`] = `
     - 
     Casablanca
   </p>
-  <button
-    className="favorite-button"
-  >
-    ADD TO MY FAVORITES
-  </button>
 </section>
 `;

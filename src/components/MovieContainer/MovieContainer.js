@@ -1,6 +1,7 @@
 import React from 'react';
 import './MovieContainer.css';
 import MovieCard from '../MovieCard/MovieCard';
+import PropTypes from 'prop-types';
 
 function MovieContainer({ movies, updateStateWithCharacters }) {
   const renderCards = () => {
@@ -20,6 +21,11 @@ function MovieContainer({ movies, updateStateWithCharacters }) {
       {renderCards()}
     </section>
   );
+}
+
+MovieContainer.propTypes = {
+  movies: PropTypes.array,
+  updateStateWithCharacters: PropTypes.func
 }
 
 export default MovieContainer;
