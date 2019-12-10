@@ -8,8 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Instructions
 1. Clone down this repo.
-2. Move into the directory by wntering `cd swapi`.
-3. 
+2. Move into the directory by entering `cd swapi`.
+3. Enter `npm install` followed by `npm start`.
+4. View the app in your broswer at `localhost:3000`.
+5. Enter `npm test` to view testing suite. 
 
 ### Project Goals
 - Write squeaky clean, well refactored code using ES6 syntax.
