@@ -1,13 +1,13 @@
 .movie-card {
   background-color: #0B1E36;
+  box-shadow: 15px 15px 15px #A6A6A6;
   color: white;
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 2vw;
   margin: 2vw;
-  box-shadow: 15px 15px 15px #A6A6A6;
+  padding: 2vw;
+  text-align: center;
 }
 
 .movie-title{
