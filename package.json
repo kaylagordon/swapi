@@ -43,5 +43,6 @@
       "src/index.js",
       "src/serviceWorker.js"
     ]
-  }
+  },
+  "homepage" : "http://myname.github.io/myapp"
 }
