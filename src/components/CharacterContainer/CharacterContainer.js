@@ -3,6 +3,7 @@ import './CharacterContainer.css';
 import CharacterCard from '../CharacterCard/CharacterCard';
 import Loader from '../Loader/Loader';
 import { getCharacter, getSpecies, getHomeworld, getFilm } from '../apiCalls/apiCalls';
+import PropTypes from 'prop-types';
 
 class CharacterContainer extends Component {
   constructor(props) {
@@ -66,6 +67,10 @@ class CharacterContainer extends Component {
     </section>
     );
   }
+}
+
+CharacterContainer.propTypes = {
+  characterURLs: PropTypes.array
 }
 
 export default CharacterContainer;
