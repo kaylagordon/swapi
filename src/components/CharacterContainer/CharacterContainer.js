@@ -56,11 +56,13 @@ class CharacterContainer extends Component {
   }
 
   renderCards = () => {
+    let counter = 0;
     return this.state.characters.map(character => {
+      counter++;
       return (
         <CharacterCard
           character={character}
-          key={Math.random()}
+          key={counter}
         />
       )
     })

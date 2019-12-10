@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterContainer should match the snapshot 1`] = `
+<section
+  className="character-container"
+>
+  <CharacterCard
+    character={
+      Object {
+        "films": Array [
+          "URL",
+          "anotherURL",
+        ],
+        "homeworld": "URL",
+        "name": "Billy",
+        "species": "URL",
+      }
+    }
+    key="1"
+  />
+  <CharacterCard
+    character={
+      Object {
+        "films": Array [
+          "URL",
+          "anotherURL",
+        ],
+        "homeworld": "URL",
+        "name": "Bob",
+        "species": "URL",
+      }
+    }
+    key="2"
+  />
+</section>
+`;
