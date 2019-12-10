@@ -159,4 +159,40 @@ describe('Fetch Calls', () => {
       expect(getHomeworld()).rejects.toEqual(Error('Oops! We had trouble finding the information you asked for. Please try again.'))
     })
   })
+
+  describe('getFilm', () => {
+    let mockResponse = {
+      title: 'A New Hope'
+    };
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => {
+            return Promise.resolve(mockResponse)
+          }
+        })
+      })
+    })
+
+    it('should be provided with the correct URL', () => {
+      getFilm('testURL');
+      expect(window.fetch).toHaveBeenCalledWith('testURL')
+    })
+
+    it('should return species name', () => {
+      expect(getFilm()).resolves.toEqual('A New Hope')
+    })
+
+    it('should return an error for response not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      })
+
+      expect(getFilm()).rejects.toEqual(Error('Oops! We had trouble finding the information you asked for. Please try again.'))
+    })
+  })
 })
