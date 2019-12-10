@@ -14,8 +14,10 @@ exports[`App should match the snapshot with the favorited class 1`] = `
       src="death-star.png"
     />
   </div>
-  <h1>
-    WELCOME, YOUNG JEDI
-  </h1>
+  <div
+    className="heading-line"
+  >
+    <h1 />
+  </div>
 </header>
 `;

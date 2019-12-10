@@ -45,12 +45,18 @@ exports[`App should match the snapshot with the favorited class 1`] = `
       JEDI KNIGHT
     </option>
     <option
-      value="padawon"
+      value="padawan"
     >
-      PADAWON
+      PADAWAN
     </option>
   </select>
+  <span
+    className="hide"
+  >
+    ALL FIELDS MUST BE FILLED IN
+  </span>
   <button
+    onClick={[Function]}
     type="button"
   >
     LET'S GO
