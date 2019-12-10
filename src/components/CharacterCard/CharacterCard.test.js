@@ -10,10 +10,15 @@ describe('CharacterCard', () => {
     species: 'human',
     films: ['Pulp Fiction', 'Empire Strikes Back', 'Casablanca']
   }
-  it('should match the snapshot', () => {
-    const wrapper = shallow(<CharacterCard
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<CharacterCard
       character={character}
     />)
+  })
+
+  it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-    })
+  })
 })
