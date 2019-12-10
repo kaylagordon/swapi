@@ -1,9 +1,17 @@
 # SWAPI (Star Wars API)
 ## Kayla Wood
 ### Mod 3 Solo Project
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and fetched from the [Star Wars API](https://swapi.co/documentation).
 
 ### About
+
+
+### Instructions
+1. Clone down this repo.
+2. Move into the directory by wntering `cd swapi`.
+3. 
+
+### Project Goals
 - Write squeaky clean, well refactored code using ES6 syntax.
 - Make informed design decisions to create a user-friendly application.
 - Keep state based components to a minimum and leverage more functional components.
@@ -14,14 +22,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Use propTypes for every component receiving props.
 - Write tests for React components and some asynchronous functionality.
 
-### Instructions
-
-
-### Project Goals
-
-
 ### Technologies Used
-
+- React
+- Jest
+- Enzyme
+- Router
+- Fetch API
 
 ### Preview
 ![gif](https://media.giphy.com/media/l4AImCVPAlNswdT4M6/giphy.gif)
