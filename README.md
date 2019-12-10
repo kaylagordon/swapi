@@ -1,6 +1,6 @@
 # SWAPI (Star Wars API)
-## Kayla Wood
-### Mod 3 Solo Project
+## Kayla Wood | Mod 3 Solo Project
+### GitHub Pages: https://kaylaewood.github.io/swapi/
 
 ### About
 SWAPI displays information about Star Wars movies and characters. This app was built with React, React Router, and includes a robust testing suite. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and fetched from the [Star Wars API](https://swapi.co/documentation).
