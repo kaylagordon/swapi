@@ -145,7 +145,7 @@ describe('Fetch Calls', () => {
       expect(window.fetch).toHaveBeenCalledWith('testURL')
     })
 
-    it('should return species name', () => {
+    it('should return homeworld array', () => {
       expect(getHomeworld()).resolves.toEqual(['Earth', '7000000000'])
     })
 
@@ -181,7 +181,7 @@ describe('Fetch Calls', () => {
       expect(window.fetch).toHaveBeenCalledWith('testURL')
     })
 
-    it('should return species name', () => {
+    it('should return films array', () => {
       expect(getFilm()).resolves.toEqual('A New Hope')
     })
 
