@@ -8,7 +8,7 @@ export const getMovies = () => {
   })
 }
 
-export const getCharacters = (characterURL) => {
+export const getCharacter = (characterURL) => {
   return fetch(characterURL)
   .then(response => {
     if (!response.ok) {

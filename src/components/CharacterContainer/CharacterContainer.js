@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './CharacterContainer.css';
 import CharacterCard from '../CharacterCard/CharacterCard';
 import Loader from '../Loader/Loader';
-import { getCharacters, getSpecies, getHomeworld, getFilm } from '../apiCalls/apiCalls';
+import { getCharacter, getSpecies, getHomeworld, getFilm } from '../apiCalls/apiCalls';
 
 class CharacterContainer extends Component {
   constructor(props) {
@@ -15,8 +15,9 @@ class CharacterContainer extends Component {
 
   componentDidMount() {
     let characters = [];
+    console.log(this.props.characterURLs);
     this.props.characterURLs.map(character => {
-      return getCharacters(character)
+      return getCharacter(character)
       .then(data => {
         let name = data.name;
         let speciesInfo = getSpecies(data.species[0]);
