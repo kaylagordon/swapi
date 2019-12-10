@@ -8,7 +8,7 @@ function Header({ heading, showHomeButton, logOut }) {
     <header>
       <div className='header-black-box'>x</div>
       <div className='death-star-container'>
-        <img src={deathStar}/>
+        <img src={deathStar} alt='death star'/>
       </div>
       <div className='heading-line'>
         <h1>{heading}</h1>

@@ -31,23 +31,26 @@ class Form extends Component {
   render() {
     return (
       <form>
-        <p className='form-text'>WHAT IS YOUR FIRST NAME?</p>
+        <label for='name' className='form-text'>WHAT IS YOUR FIRST NAME?</label>
         <input
           type='text'
           name='name'
+          id='name'
           value={this.state.name}
           onChange={this.updateUserInfo}
         />
-        <p className='form-text'>WHAT IS YOUR FAVORITE STAR WARS QUOTE?</p>
+        <label for='quote' className='form-text'>WHAT IS YOUR FAVORITE STAR WARS QUOTE?</label>
         <input
           type='text'
           name='favoriteQuote'
+          id='quote'
           value={this.state.favoriteQuote}
           onChange={this.updateUserInfo}
         />
-        <p className='form-text'>HOW WELL DO YOU KNOW STAR WARS?</p>
+        <label for='ranking' className='form-text'>HOW WELL DO YOU KNOW STAR WARS?</label>
         <select
           name='ranking'
+          id='ranking'
           value={this.state.ranking}
           onChange={this.updateUserInfo}
         >
