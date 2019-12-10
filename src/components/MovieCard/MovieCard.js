@@ -1,6 +1,8 @@
 import React from 'react';
 import './MovieCard.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 function MovieCard({ movie, updateStateWithCharacters }) {
 
@@ -14,6 +16,11 @@ function MovieCard({ movie, updateStateWithCharacters }) {
       </Link>
     </section>
   );
+}
+
+MovieCard.propTypes = {
+  movie: PropTypes.object,
+  updateStateWithCharacters: PropTypes.func
 }
 
 export default MovieCard;
