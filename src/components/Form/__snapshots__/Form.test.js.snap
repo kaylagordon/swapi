@@ -11,7 +11,7 @@ exports[`App should match the snapshot 1`] = `
     name="name"
     onChange={[Function]}
     type="text"
-    value=""
+    value="Kayla"
   />
   <p
     className="form-text"
@@ -22,7 +22,7 @@ exports[`App should match the snapshot 1`] = `
     name="favoriteQuote"
     onChange={[Function]}
     type="text"
-    value=""
+    value="Titanic is better"
   />
   <p
     className="form-text"
