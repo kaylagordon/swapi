@@ -2,34 +2,40 @@
 
 exports[`App should match the snapshot 1`] = `
 <form>
-  <p
+  <label
     className="form-text"
+    for="name"
   >
     WHAT IS YOUR FIRST NAME?
-  </p>
+  </label>
   <input
+    id="name"
     name="name"
     onChange={[Function]}
     type="text"
     value="Kayla"
   />
-  <p
+  <label
     className="form-text"
+    for="quote"
   >
     WHAT IS YOUR FAVORITE STAR WARS QUOTE?
-  </p>
+  </label>
   <input
+    id="quote"
     name="favoriteQuote"
     onChange={[Function]}
     type="text"
     value="Titanic is better"
   />
-  <p
+  <label
     className="form-text"
+    for="ranking"
   >
     HOW WELL DO YOU KNOW STAR WARS?
-  </p>
+  </label>
   <select
+    id="ranking"
     name="ranking"
     onChange={[Function]}
     value="jedi-master"
