@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './CharacterContainer.css';
 import CharacterCard from '../CharacterCard/CharacterCard';
-import Loader from '../Loader/Loader'
+import Loader from '../Loader/Loader';
+import { getCharacters, getSpecies, getHomeworld, getFilm } from '../apiCalls/apiCalls';
 
 class CharacterContainer extends Component {
   constructor(props) {
@@ -15,26 +16,12 @@ class CharacterContainer extends Component {
   componentDidMount() {
     let characters = [];
     this.props.characterURLs.map(character => {
-      return fetch(character)
-      .then(response => response.json())
+      return getCharacters(character)
       .then(data => {
         let name = data.name;
-
-        let speciesInfo = fetch(data.species[0])
-          .then(response => response.json())
-          .then(data => data.name)
-
-        let homeworldInfo = fetch(data.homeworld)
-          .then(response => response.json())
-          .then(data => {
-            return [data.name, data.population]
-          })
-
-        let films = data.films.map(film => {
-          return fetch(film)
-          .then(response => response.json())
-          .then(data => data.title)
-        })
+        let speciesInfo = getSpecies(data.species[0]);
+        let homeworldInfo = getHomeworld(data.homeworld);
+        let films = data.films.map(film => getFilm(film))
 
         Promise.all([name, speciesInfo, homeworldInfo, ...films])
           .then(data => {
