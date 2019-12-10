@@ -5,6 +5,7 @@ import Form from '../Form/Form';
 import UserProfile from '../UserProfile/UserProfile';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
+import { getMovies } from '../apiCalls/apiCalls'
 import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
@@ -21,8 +22,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://swapi.co/api/films')
-    .then(response => response.json())
+    getMovies()
     .then(movies => {
       this.setState({
         movies: movies.results
