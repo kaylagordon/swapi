@@ -15,7 +15,6 @@ class CharacterContainer extends Component {
 
   componentDidMount() {
     let characters = [];
-    console.log(this.props.characterURLs);
     this.props.characterURLs.map(character => {
       return getCharacter(character)
       .then(data => {

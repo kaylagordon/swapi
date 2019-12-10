@@ -72,7 +72,7 @@ describe('Fetch Calls', () => {
       expect(window.fetch).toHaveBeenCalledWith('testURL')
     })
 
-    it('should return an array of movies', () => {
+    it('should return a character object', () => {
       expect(getCharacter()).resolves.toEqual(mockResponse)
     })
 
@@ -84,6 +84,79 @@ describe('Fetch Calls', () => {
       })
 
       expect(getCharacter()).rejects.toEqual(Error('Oops! We had trouble finding the information you asked for. Please try again.'))
+    })
+  })
+
+  describe('getSpecies', () => {
+    let mockResponse = {
+      name: 'Droid'
+    };
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => {
+            return Promise.resolve(mockResponse)
+          }
+        })
+      })
+    })
+
+    it('should be provided with the correct URL', () => {
+      getSpecies('testURL');
+      expect(window.fetch).toHaveBeenCalledWith('testURL')
+    })
+
+    it('should return species name', () => {
+      expect(getSpecies()).resolves.toEqual('Droid')
+    })
+
+    it('should return an error for response not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      })
+
+      expect(getSpecies()).rejects.toEqual(Error('Oops! We had trouble finding the information you asked for. Please try again.'))
+    })
+  })
+
+  describe('getHomeworld', () => {
+    let mockResponse = {
+      name: 'Earth',
+      population: '7000000000'
+    };
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => {
+            return Promise.resolve(mockResponse)
+          }
+        })
+      })
+    })
+
+    it('should be provided with the correct URL', () => {
+      getHomeworld('testURL');
+      expect(window.fetch).toHaveBeenCalledWith('testURL')
+    })
+
+    it('should return species name', () => {
+      expect(getHomeworld()).resolves.toEqual(['Earth', '7000000000'])
+    })
+
+    it('should return an error for response not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      })
+
+      expect(getHomeworld()).rejects.toEqual(Error('Oops! We had trouble finding the information you asked for. Please try again.'))
     })
   })
 })
