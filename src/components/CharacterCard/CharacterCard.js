@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './CharacterCard.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function CharacterCard({ character }) {
   const showFilms = () => {
@@ -21,6 +22,10 @@ function CharacterCard({ character }) {
       {showFilms()}
     </section>
   )
+}
+
+CharacterCard.propTypes = {
+  character: PropTypes.object
 }
 
 export default CharacterCard;
