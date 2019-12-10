@@ -17,7 +17,19 @@ exports[`Header should match the snapshot 1`] = `
   <div
     className="heading-line"
   >
-    <h1 />
+    <h1>
+      Heading text
+    </h1>
+    <Link
+      to="/"
+    >
+      <button
+        className="logout-button"
+        onClick={[Function]}
+      >
+        LOG OUT
+      </button>
+    </Link>
   </div>
 </header>
 `;
