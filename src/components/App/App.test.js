@@ -4,8 +4,26 @@ import App from './App';
 import { shallow } from 'enzyme';
 
 describe('App', () => {
+  let wrapper;
+
+  beforeEach(() {
+    wrapper = shallow(<App />)
+
+  })
+
   it('should match the snapshot', () => {
-    const wrapper = shallow(<App />)
     expect(wrapper).toMatchSnapshot();
-    })
+  })
+
+  it('should update state with form information', () => {
+
+  })
+
+  it('should update state with character URLs', () => {
+
+  })
+
+  it('should update state when user logs out', () => {
+    
+  })
 })
