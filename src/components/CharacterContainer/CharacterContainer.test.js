@@ -35,4 +35,9 @@ describe('CharacterContainer', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   })
+
+  it('should render CharacterCards with correct information', () => {
+    expect(wrapper.instance().renderCards().length).toEqual(2);
+  })
+
 })
