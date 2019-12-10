@@ -19,7 +19,7 @@ class Form extends Component {
     })
   }
 
-  handleClick = () => {
+  validateForm = () => {
     if(this.state.name && this.state.favoriteQuote && this.state.ranking) {
       this.setState({ formComplete: 'hide' });
       this.props.updateStateFromForm(this.state.name, this.state.favoriteQuote, this.state.ranking);
@@ -56,7 +56,7 @@ class Form extends Component {
           <option value='padawan'>PADAWAN</option>
         </select>
         <span className={this.state.formComplete.toString()}>ALL FIELDS MUST BE FILLED IN</span>
-        <button type='button' onClick={this.handleClick}>LET'S GO</button>
+        <button type='button' onClick={this.validateForm}>LET'S GO</button>
       </form>
     )
   }
