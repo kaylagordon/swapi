@@ -1,5 +1,27 @@
 # SWAPI (Star Wars API)
+## Kayla Wood
+### Mod 3 Solo Project
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### About
+- Write squeaky clean, well refactored code using ES6 syntax.
+- Make informed design decisions to create a user-friendly application.
+- Keep state based components to a minimum and leverage more functional components.
+- Use a modular architecture for your application file structure.
+- Think deeply about React Lifecycle Methods.
+- Become familiar with promises, nested fetch requests, and handling the UI based on acceptance of data.
+- Become familiar with routing and how to handle dynamic routes.
+- Use propTypes for every component receiving props.
+- Write tests for React components and some asynchronous functionality.
+
+### Instructions
+
+
+### Project Goals
+
+
+### Technologies Used
+
 
 ### Preview
 ![gif](https://media.giphy.com/media/l4AImCVPAlNswdT4M6/giphy.gif)
