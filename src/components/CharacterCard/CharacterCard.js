@@ -19,7 +19,6 @@ function CharacterCard({ character }) {
       <h4>POPULATION: <br /> {character.homeworld[1]}</h4>
       <h4>FILMS:</h4>
       {showFilms()}
-      <button className='favorite-button'>ADD TO MY FAVORITES</button>
     </section>
   )
 }
