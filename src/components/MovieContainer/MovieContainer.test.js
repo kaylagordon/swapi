@@ -9,10 +9,15 @@ describe('MovieContainer', () => {
     {name: 'Alien', episode_id: 2, characters: ['url1', 'url2']},
     {name: 'Robocop', episode_id: 3, characters: ['url1', 'url2']}
   ]
-  it('should match the snapshot', () => {
-    const wrapper = shallow(<MovieContainer
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<MovieContainer
       movies={movies}
     />)
+  })
+
+  it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-    })
+  })
 })
